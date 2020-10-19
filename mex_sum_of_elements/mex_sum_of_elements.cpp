@@ -1,0 +1,3 @@
+/*
+	MEX implementation of the imread function from openCV.
+*/
