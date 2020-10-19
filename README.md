@@ -9,6 +9,7 @@ Assuming you are on Ubuntu Linux, you need to have the following installed:
 - CMake
 - gcc and g++ (install build-essentials)
 - openCV (for handling imaging stuff in C++)
+- An IDE would also be good (QT Creator is works)
 
 
 
@@ -79,6 +80,25 @@ There are two ways to write MEX applications:
 
 
 
+## Building Mex File
+
+Create a `build` directory inside current directory.
+
+In a terminal pointing to build run the following:
+
+```bash
+cmake ..
+make
+```
+
+The built Mex file can be found in the  `bin`  directory.
+
+Note: You may get a warning about gcc or g++ version being incompatible with the MEX compiler. The MEX file should still have been built.
+
+
+
+
+
 ## Project 1: Sum of array elements
 
 Create a MEX function which returns the sum of all elements of a passed in array.
@@ -100,6 +120,5 @@ In MATLAB we should call the function like this:
 ```matlab
 imgEdit = OpenCV_Edit(img);
 ```
-
 
 
