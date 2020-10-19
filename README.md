@@ -41,11 +41,22 @@ There are two ways to write MEX applications:
    };
    ```
 
-   **Note:** `mexFunction` function is the entry point into the MEX application from MATLAB. It **must** be present with that exact name.
+   **NOTE:** 
 
-   Link to the C/C++ API can be found [here](https://www.mathworks.com/help/matlab/cc-mx-matrix-library.html?s_tid=CRUX_lftnav).
+   - `mexFunction` function is the entry point into the MEX application from MATLAB. It **must** be present with that exact name.
 
-   Inputs and outputs from the function are stored as `mxArray` data structure. The data structure holds information such type, size (dimensions), is complex, and etc.
+   - Link to the C/C++ API can be found [here](https://www.mathworks.com/help/matlab/cc-mx-matrix-library.html?s_tid=CRUX_lftnav).
+
+
+   - Inputs and outputs from the function are stored as `mxArray` data structure. The data structure holds information such type, size (dimensions), is complex, and etc.
+
+   
+
+   ```matlab
+   [output1, output2, ...] = SomeFunction(input1, input2, ...);
+   ```
+
+   
 
    | Variable | Description                                                  |
    | -------- | ------------------------------------------------------------ |
