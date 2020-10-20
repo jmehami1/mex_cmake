@@ -12,3 +12,6 @@ else
     error("mex file not built");
 end
 
+arrIN = randi(10,1,5)
+
+arrOut = SumOfElements(arrIN)

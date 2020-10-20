@@ -2,6 +2,16 @@
         MEX file which edits passed in images using openCV
 */
 
+#include <string>
+#include <iostream>
+#include <opencv2/highgui.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+#include "mex.h"
+
 //Helper function for used in mx_Array_Image2_Mat
 mwIndex subs(const mxArray *inputMatrix, const std::vector<mwIndex>& si)
 {
@@ -9,7 +19,7 @@ mwIndex subs(const mxArray *inputMatrix, const std::vector<mwIndex>& si)
     return mxCalcSingleSubscript(inputMatrix, si.size(), (!v.empty() ? &v[0] : NULL));
 }
 
-
+//convert mx_Array point to uint8 image to openCV MAT.
 cv::Mat mx_Array_Image2_Mat(const mxArray *inputMatrix)
 {
 
@@ -56,4 +66,62 @@ cv::Mat mx_Array_Image2_Mat(const mxArray *inputMatrix)
     cv::cvtColor(mat, mat, cv::COLOR_RGB2BGR);
 
     return mat;
+}
+
+void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
+{
+    //checking inputs/outputs
+    if ((nlhs != 1) || (nrhs != 1))
+        mexErrMsgTxt("incorrect input/output arguments");
+
+    //**1ST INPUT***
+
+    cv::Mat inImgMat = mx_Array_Image2_Mat(prhs[0]);
+
+    const mwSize *inImgDim = mxGetDimensions(prhs[0]);
+    mwSize numImgDim = mxGetNumberOfDimensions(prhs[0]);
+
+    //convert dimensions to integer
+    const int inImgH = inImgDim[0];
+    const int inImgW = inImgDim[1];
+
+
+    /* initialize random seed: */
+    srand (time(NULL));
+
+
+
+    //openCV implementation
+    cv::Scalar color = cv::Scalar(rand() % 254 + 1, rand() % 254 + 1, rand() % 254 + 1);
+    cv::circle(inImgMat, cv::Point(inImgW/2,inImgH/2), 20, color, -1, 8, 0);
+
+
+
+
+
+    //**1ST OUTPUT***
+    //allocated space for the output
+    plhs[0] = mxCreateNumericArray(numImgDim,inImgDim, mxUINT8_CLASS, mxREAL);
+
+    //pointer to beginning of plhs[0]
+    char* outMat = (char*) mxGetData(plhs[0]);
+
+    cv::Vec3b pixel;
+    int arrIndex = 0;
+
+    //transferred the data to the array
+    //Store image pixel channel colours into a 1D array used for passing to matlab
+    for (int j = 0; j < inImgW; j++){
+        for (int i = 0; i < inImgH; i++){
+            pixel = inImgMat.at<cv::Vec3b>(i,j);
+
+            //openCV stores as BGR
+            //MATLAB requires RGB
+            outMat[arrIndex] = pixel[2];   //R
+            outMat[inImgH*inImgW+arrIndex] = pixel[1]; //G
+            outMat[2*inImgH*inImgW+arrIndex] = pixel[0]; //B
+
+            arrIndex++;
+        }
+    }
 }
