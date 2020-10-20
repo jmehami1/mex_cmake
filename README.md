@@ -9,7 +9,7 @@ Assuming you are on Ubuntu Linux, you need to have the following installed:
 - CMake
 - gcc and g++ (install build-essentials)
 - openCV (for handling imaging stuff in C++)
-- An IDE would also be good (QT Creator is works)
+- An IDE would also be good (QT Creator works)
 
 
 
