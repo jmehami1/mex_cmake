@@ -97,7 +97,7 @@ You would call the MEX function in MATLAB as follows:
 
 ## Building MEX with CMake
 
-Inspect the `CMakeLists.txt` files inside of the example projects to see further details of building MEX function. Follow the instructions:
+Inspect the `CMakeLists.txt` files inside of the example projects to see further details and CMake syntax. To build a MEX function, follow these instructions:
 
 1. Create a `build` directory inside the project directory.
 2. In a terminal pointing to build run the following:
