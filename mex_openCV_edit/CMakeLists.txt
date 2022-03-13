@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.10)
 project(mex_openCV_edit)
 
 find_package( Matlab COMPONENTS MX_LIBRARY )
-find_package( OpenCV REQUIRED ) #require openCV here
+find_package( OpenCV 4.0 REQUIRED
+    PATHS / )
 
 if (Matlab_FOUND)
     message(STATUS "MATLAB root directory found: ${Matlab_ROOT_DIR}.")

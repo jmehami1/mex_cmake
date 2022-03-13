@@ -124,4 +124,11 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
             arrIndex++;
         }
     }
+
+    if (mexIsLocked())
+        std::cout << "locked" << std::endl;
+    else
+        std::cout << "unlocked" << std::endl;
+
+    std::cout << "Printing in function ABC" << std::endl;
 }

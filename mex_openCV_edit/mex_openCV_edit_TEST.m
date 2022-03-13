@@ -1,9 +1,22 @@
 %Test the implementation for the mex imread function
 
+clc
 %Author: Jasprabhjit Mehami, 13446277
 
-clear;
+[F,M] = inmem("-completenames")
+
+
+clear all;
+clear classes;
+clear functions;
+clear global;
+clear java;
+clear mex;
 close all;
+
+[F,M] = inmem("-completenames")
+
+
 
 % mex function should be in the bin folder
 if exist("bin", "dir")

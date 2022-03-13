@@ -2,7 +2,7 @@
 
 %Author: Jasprabhjit Mehami, 13446277
 
-clear;
+clear function;
 close all;
 
 %mex function should be in the bin folder

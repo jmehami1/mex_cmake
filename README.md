@@ -9,6 +9,8 @@ Assuming you are on Ubuntu, you need to have the following installed:
 - gcc and g++ (install build-essentials)
 - openCV (for handling imaging in C++)
 
+You will need compatible gcc and g++ compilers to build MEX functions as listed [here](https://au.mathworks.com/support/requirements/supported-compilers.html). 
+
 ## File Extensions
 
 Summary of important file extensions from MATLAB and C++
@@ -31,15 +33,16 @@ Built MEX functions **cannot** be shared between different OS, and in many cases
 
 There are two ways to write MEX applications:
 
-1. C Matrix API 
-
-   ```c++
+1. C Matrix API
+```c++
    #include "mex.h"
    
    void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]){
-       
+       /*
+         Implemented MEX function
+       /*
    };
-   ```
+```
 
    **NOTE:** 
 
@@ -135,4 +138,3 @@ In MATLAB we should call the function like this:
 ```matlab
 imgEdit = OpenCV_Edit(img);
 ```
-

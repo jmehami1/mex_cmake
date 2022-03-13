@@ -32,5 +32,6 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]){
 
     //Create first output
     plhs[0] = mxCreateDoubleScalar(sum);
+
 }
 
