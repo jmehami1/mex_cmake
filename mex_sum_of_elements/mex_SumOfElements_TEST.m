@@ -12,6 +12,14 @@ else
     error("mex file not built");
 end
 
-arrIN = randi(10,1,5)
+numNums = 99999999;
 
-arrOut = SumOfElements(arrIN)
+arrIN = randi(10,1,numNums);
+
+tic();
+arrOut = SumOfElements(arrIN);
+toc();
+
+tic();
+arrOut1 = sum(arrIN,'all'); 
+toc();
