@@ -12,12 +12,12 @@ find_package( Matlab COMPONENTS MX_LIBRARY )
 if (Matlab_FOUND)
     message(STATUS "MATLAB root directory found: ${Matlab_ROOT_DIR}.")
     matlab_add_mex(
-        NAME eigen_entry
-        SRC eigen_entry.cpp
+        NAME eigen_pointcloud
+        SRC mex_eigen_pointcloud.cpp
         #R2018a
         )
 
-    set_target_properties( eigen_entry
+    set_target_properties( eigen_pointcloud
         PROPERTIES
         COMPILE_FLAGS "-fvisibility=default"
         ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin"

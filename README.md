@@ -1,15 +1,83 @@
-# MATLAB MEX using CMake
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a name="readme-top"></a>
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+
+<!-- Find and replace all the following: 
+
+github username: jmehami1
+repo name:  mex_cmake
+
+-->
+
+<div align="center">
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![reposize][reposize-shield]][reposize-url]
+
+[![LinkedIn][linkedin-shield]][linkedin-url]
+[![portfolio][portfolio-shield]][portfolio-url]
+
+</div>
+
+<h1 align="center">MATLAB MEX tutorial using CMake</h1>
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="MATLAB" title="MATLAB" width="20%" href="mathworks.com/help/matlab/ref/mex.html" align="center"/>
+
+---
+
+**Table of Contents**
+
+- [About](#about)
+- [Requirements](#requirements)
+- [File Extensions](#file-extensions)
+- [MEX Applications](#mex-applications)
+- [Building MEX with CMake](#building-mex-with-cmake)
+- [Project 1: Sum of array elements](#project-1-sum-of-array-elements)
+- [Project 2: Edit images using openCV](#project-2-edit-images-using-opencv)
+- [Project 3: Edit pointclouds using Eigen library](#project-3-edit-pointclouds-using-eigen-library)
+- [TODO](#todo)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgments](#acknowledgments)
+
+---
+
+## About
 
 A small introduction tutorial to MATLAB's MEX applications, which are used for interfacing and running C/C++ programs inside of MATLAB.
 
-Assuming you are on Ubuntu, you need to have the following installed:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- MATLAB (this project compiled with **R2020b**)
+## Requirements
+
+- MATLAB 2018a or higher (Tested with 2021b)
+- GCC 7.0 or higher (Tested with 7.5.0)
+- OpenCV 4.0 or higher
 - CMake
-- gcc and g++ (install build-essentials)
-- openCV (for handling imaging in C++)
+- libeigen3-dev
 
 You will need compatible gcc and g++ compilers to build MEX functions as listed [here](https://au.mathworks.com/support/requirements/supported-compilers.html). 
+
+
 
 ## File Extensions
 
@@ -138,3 +206,73 @@ In MATLAB we should call the function like this:
 ```matlab
 imgEdit = OpenCV_Edit(img);
 ```
+
+
+## Project 3: Edit pointclouds using Eigen library
+
+Obviously MATLAB can load pointclouds and edit them, but lets create a MEX file which edits a pointcloud using the C++ Eigen library and returns the edited pointcloud to MATLAB.
+
+In MATLAB we should call the function like this:
+
+```matlab
+modified_cloud = eigen_pointcloud(point_cloud, source_correspondences, target_correspondences);
+```
+
+
+## TODO
+
+- [ ] Check if MEX C++ API is working now
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contact
+
+[Jasprabhjit Mehami](linkedin-url)
+
+Email: jasprabhjit.mehami@gmail.com
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+* [Eigen Library](https://eigen.tuxfamily.org/index.php?title=Main_Page)
+
+* [OpenCV](https://opencv.org/)
+
+  
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/jmehami1/mex_cmake.svg?style=plastic&logo=appveyor
+[contributors-url]: https://github.com/jmehami1/mex_cmake/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/jmehami1/mex_cmake.svg?style=plastic&logo=appveyor
+[forks-url]: https://github.com/jmehami1/mex_cmake/network/members
+[stars-shield]: https://img.shields.io/github/stars/jmehami1/mex_cmake.svg?style=plastic&logo=appveyor
+[stars-url]: https://github.com/jmehami1/mex_cmake/stargazers
+[issues-shield]: https://img.shields.io/github/issues/jmehami1/mex_cmake.svg?style=plastic&logo=appveyor
+[issues-url]: https://github.com/jmehami1/mex_cmake/issues
+
+[license-shield]: https://img.shields.io/github/license/jmehami1/mex_cmake
+[license-url]: https://github.com/jmehami1/mex_cmake/blob/master/LICENSE.txt
+[reposize-shield]: https://img.shields.io/github/repo-size/jmehami1/mex_cmake.svg?style=plastic&logo=appveyor
+[reposize-url]: https://github.com/jmehami1/mex_cmake
+
+
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&colorB=0077b5
+[linkedin-url]: https://linkedin.com/in/jessemehami
+[portfolio-shield]: https://img.shields.io/badge/-Portfolio-blue.svg?style=for-the-badge&logo=Portfolio&colorB=625094
+[portfolio-url]: https://jmehami1.github.io/
